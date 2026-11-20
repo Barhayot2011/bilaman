@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BILAMAN — Qobiliyatingni kashf et</title>
+<meta name="description" content="BILAMAN: O‘zbekiston uchun AI asosidagi qobiliyatni aniqlash platformasi.">
+<style>
+:root{--bg:#0a0a2e;--bg2:#15114d;--card:rgba(255,255,255,.07);--line:rgba(255,255,255,.16);--tx:#fff;--mu:#b9b8e0;--pu:#7c3aed;--pu2:#a855f7;--bl:#3b82f6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a0a2e;--tx:#fff}}
+:root[data-theme="dark"]{--bg:#0a0a2e;--tx:#fff}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 700px at 75% 0,#2b1a7a 0,transparent 60%),linear-gradient(180deg,var(--bg),var(--bg2));color:var(--tx);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5;min-height:100vh}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:rgba(10,10,46,.65);padding-top:env(safe-area-inset-top,0px)}
+nav{display:flex;align-items:center;gap:20px;height:76px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:26px;letter-spacing:.04em}
+.logo svg{width:38px;height:38px}
+.logo i{font-style:normal;color:var(--pu2)}
+.links{display:flex;gap:6px;margin-left:24px;flex:1}
+.links a{padding:10px 16px;border-radius:999px;font-size:15px;color:#e5e4ff}
+.links a:hover,.links a.on{background:#4c1fd8}
+.right{display:flex;gap:12px;align-items:center}
+select{background:transparent;color:var(--tx);border:1px solid var(--line);border-radius:999px;padding:9px 12px}
+select option{color:#111}
+.btn{border-radius:999px;padding:12px 24px;border:1px solid var(--line);background:transparent;font-weight:600;transition:.2s}
+.btn:hover{transform:translateY(-2px)}
+.pri{background:linear-gradient(90deg,#6d28d9,#8b5cf6);border-color:transparent;box-shadow:0 10px 30px rgba(124,58,237,.45)}
+.burger{display:none}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:20px;align-items:center;padding:50px 0 30px}
+.badge{display:inline-block;padding:9px 18px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-size:14px}
+h1{font-size:clamp(40px,6vw,80px);line-height:1.02;margin:22px 0 10px;font-weight:800}
+h1 em{font-style:normal;background:linear-gradient(90deg,#a855f7,#60a5fa);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-size:clamp(22px,2.8vw,38px);font-weight:600;margin:0 0 18px}
+.sub b{color:var(--pu2)}
+.lead{color:var(--mu);max-width:480px;font-size:18px}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.vis{position:relative;min-height:460px;display:grid;place-items:center}
+.brain{width:min(380px,80%);filter:drop-shadow(0 0 40px #5b6bff);animation:fl 6s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-14px)}}
+.chip{position:absolute;background:var(--card);border:1px solid var(--line);backdrop-filter:blur(10px);border-radius:18px;padding:14px 18px;box-shadow:0 14px 40px rgba(0,0,0,.35);font-size:14px;animation:fl 7s ease-in-out infinite}
+.chip b{display:block;font-size:24px}
+.bar{height:6px;background:rgba(255,255,255,.15);border-radius:9px;margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,#7c3aed,#38bdf8)}
+.c1{top:8%;left:0}.c2{bottom:22%;left:2%;animation-delay:1s}.c3{top:12%;right:0;animation-delay:2s}.c4{bottom:12%;right:0;animation-delay:3s;background:rgba(109,40,217,.55)}
+.feats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:30px 0 70px}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;gap:12px;align-items:center}
+.feat span{font-size:30px}
+.feat b{display:block}.feat small{color:var(--mu)}
+section{padding:50px 0}
+h2{font-size:clamp(28px,4vw,42px);margin:0 0 8px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px}
+.step .n{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#3b82f6);display:grid;place-items:center;font-weight:800;margin-bottom:12px}
+.demo{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:30px;max-width:720px}
+.prog{height:8px;background:rgba(255,255,255,.15);border-radius:9px;overflow:hidden;margin-bottom:20px}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,#7c3aed,#38bdf8);transition:.3s}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.opt{padding:16px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.05);font-size:20px;font-weight:700}
+.opt:hover{border-color:var(--pu2);background:rgba(124,58,237,.3)}
+.note{color:var(--mu);font-size:14px;margin-top:14px}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin-bottom:10px;max-width:800px}
+summary{cursor:pointer;font-weight:600}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mu);font-size:14px;text-align:center}
+dialog{background:#15114d;color:var(--tx);border:1px solid var(--line);border-radius:22px;padding:28px;width:min(400px,92vw)}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+dialog input{width:100%;padding:12px;margin:6px 0 12px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.07);color:var(--tx)}
+.err{color:#fda4af;font-size:13px;min-height:18px}
+:focus-visible{outline:2px solid #60a5fa;outline-offset:2px}
+@media(max-width:1000px){.hero{grid-template-columns:1fr}.feats{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.links{display:none;position:absolute;top:76px;left:0;right:0;flex-direction:column;background:#0f0c3d;padding:12px;margin:0}.links.open{display:flex}.burger{display:block;margin-left:auto;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 12px}.right{margin-left:0}.vis{min-height:420px}}
+@media(max-width:560px){.right .btn{display:none}.opts{grid-template-columns:1fr}.chip{font-size:12px;padding:10px}.feats{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a class="logo" href="#top" aria-label="BILAMAN"><svg viewBox="0 0 40 40"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#38bdf8"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs><circle cx="20" cy="20" r="17" fill="none" stroke="url(#g)" stroke-width="3"/><path d="M13 24c-3-4 0-10 5-9 2-3 8-2 9 2 3 2 2 7-2 8-1 3-6 3-7 0z" fill="url(#g)"/></svg>BILA<i>M</i>AN</a>
+<button class="burger" id="bg" aria-label="Menu">☰</button>
+<div class="links" id="lk">
+<a class="on" href="#top" data-i="n1"></a><a href="#test" data-i="n2"></a><a href="#how" data-i="n3"></a><a href="#faq" data-i="n4"></a><a href="#about" data-i="n5"></a><a href="#contact" data-i="n6"></a></div>
+<div class="right"><select id="lang" aria-label="Language"><option value="uz">UZ</option><option value="ru">RU</option><option value="en">EN</option></select>
+<button class="btn" data-auth="login" data-i="login"></button><button class="btn pri" data-auth="reg" data-i="reg"></button></div>
+</nav></div></header>
+
+<main id="top" class="wrap">
+<div class="hero">
+<div>
+<span class="badge" data-i="badge"></span>
+<h1><span data-i="h1a"></span><br><em data-i="h1b"></em></h1>
+<p class="sub"><span data-i="s1"></span> <b data-i="s2"></b> <span data-i="s3"></span></p>
+<p class="lead" data-i="lead"></p>
+<div class="cta"><a class="btn pri" href="#test" data-i="cta"></a><a class="btn" href="#how" data-i="video"></a></div>
+</div>
+<div class="vis" aria-hidden="true">
+<svg class="brain" viewBox="0 0 200 170"><defs><radialGradient id="b" cx=".5" cy=".4"><stop stop-color="#e0e7ff"/><stop offset=".5" stop-color="#6366f1"/><stop offset="1" stop-color="#7c3aed"/></radialGradient></defs><ellipse cx="100" cy="150" rx="90" ry="14" fill="none" stroke="#60a5fa" stroke-width="2" opacity=".7"/><path d="M60 110c-26-8-30-44-6-56 4-22 34-30 48-14 18-12 44 2 44 24 22 8 22 40-2 48-6 14-26 18-36 6-8 8-24 6-30-4z" fill="url(#b)"/><path d="M100 50v62M78 70c10 4 14 12 12 22M122 72c-10 4-14 12-12 22" stroke="#fff" stroke-opacity=".55" stroke-width="2" fill="none"/></svg>
+<div class="chip c1"><span data-i="c1"></span><b>92%</b><div class="bar"><i style="width:92%"></i></div></div>
+<div class="chip c2"><span data-i="c2"></span><b>88%</b><div class="bar"><i style="width:88%"></i></div></div>
+<div class="chip c3"><span data-i="c3"></span><b>💼</b><small>Dasturchi, Muhandis, AI…</small></div>
+<div class="chip c4"><small data-i="c4"></small><br><b style="font-size:17px">⭐ IT & tech</b></div>
+</div>
+</div>
+<div class="feats">
+<div class="feat"><span>🧠</span><div><b data-i="f1"></b><small data-i="f1d"></small></div></div>
+<div class="feat"><span>📊</span><div><b data-i="f2"></b><small data-i="f2d"></small></div></div>
+<div class="feat"><span>⭐</span><div><b data-i="f3"></b><small data-i="f3d"></small></div></div>
+<div class="feat"><span>🎓</span><div><b data-i="f4"></b><small data-i="f4d"></small></div></div>
+<div class="feat"><span>⚡</span><div><b data-i="f5"></b><small data-i="f5d"></small></div></div>
+</div>
+
+<section id="how"><h2 data-i="hw"></h2>
+<div class="steps">
+<div class="step"><div class="n">1</div><b data-i="st1"></b><p data-i="st1d"></p></div>
+<div class="step"><div class="n">2</div><b data-i="st2"></b><p data-i="st2d"></p></div>
+<div class="step"><div class="n">3</div><b data-i="st3"></b><p data-i="st3d"></p></div>
+</div></section>
+
+<section id="test"><h2 data-i="dt"></h2><p class="lead" data-i="dtd"></p>
+<div class="demo" id="demo" aria-live="polite"></div></section>
+
+<section id="faq"><h2>FAQ</h2>
+<details><summary data-i="q1"></summary><p data-i="a1"></p></details>
+<details><summary data-i="q2"></summary><p data-i="a2"></p></details>
+<details><summary data-i="q3"></summary><p data-i="a3"></p></details></section>
+
+<section id="about"><h2 data-i="n5"></h2><p class="lead" data-i="ab"></p></section>
+<section id="contact"><h2 data-i="n6"></h2><p class="lead">hello@bilaman.example</p></section>
+</main>
+<footer>© 2026 BILAMAN · <span data-i="ft"></span></footer>
+
+<dialog id="dlg"><form method="dialog" id="af" novalidate>
+<h3 id="at"></h3>
+<label>Email<input type="email" id="em" autocomplete="email"></label>
+<label><span data-i="pw"></span><input type="password" id="ps" autocomplete="current-password"></label>
+<div class="err" id="er"></div>
+<button class="btn pri" type="submit" data-i="go"></button> <button class="btn" type="button" id="cl">✕</button>
+<p class="note" data-i="auth_note"></p></form></dialog>
+
+<script>
+var T={
+uz:{n1:"Bosh sahifa",n2:"Testlar",n3:"Natijalar",n4:"Maslahat",n5:"Biz haqimizda",n6:"Aloqa",login:"Kirish",reg:"Ro‘yxatdan o‘tish",badge:"✨ AI texnologiyasi bilan",h1a:"Har bir insonda",h1b:"qobiliyat bor.",s1:"Biz uni",s2:"topishga",s3:"yordam beramiz.",lead:"BILAMAN — o‘z qobiliyatingni aniqlash, kelajagingni rejalash va o‘z ustingda ishlash uchun eng yaxshi platforma.",cta:"🚀 Qobiliyatingni aniqlash →",video:"▶ Qanday ishlaydi",c1:"Mantiqiy fikrlash",c2:"Ijodkorlik",c3:"Kasblar",c4:"Sizning tavsiyangiz:",f1:"Turli testlar",f1d:"Mantiq, ijodkorlik, IT va boshqalar",f2:"Aniq natijalar",f2d:"Sizning kuchli va zaif tomonlaringiz",f3:"Shaxsiy tavsiyalar",f3d:"Siz uchun eng mos kasb va yo‘nalishlar",f4:"Rivojlanish rejasi",f4d:"Kelajagingiz uchun individual reja",f5:"AI maslahatchi",f5d:"Savollaringizga tez va aniq javob",hw:"BILAMAN qanday ishlaydi",st1:"Test topshiring",st1d:"Mantiq, ijodkorlik va qiziqishlaringizni aniqlovchi savollarga javob bering.",st2:"Natijani ko‘ring",st2d:"Kuchli tomonlaringiz diagrammalarda taxminiy ko‘rsatkich sifatida ko‘rsatiladi.",st3:"Reja oling",st3d:"AI maslahatchi mos yo‘nalishlar va o‘rganish rejasini taklif qiladi.",dt:"Tezkor sinov",dtd:"3 ta savoldan iborat qisqa mantiq testi.",qs:["Qatorni davom ettiring: 2, 4, 8, 16, …","Qaysi son ortiqcha: 2, 3, 5, 9?","Qatorni davom ettiring: 1, 1, 2, 3, 5, …"],qn:"Savol",res:"Natija",again:"Qayta topshirish",disc:"Bu taxminiy ko‘rsatkich, aqlning mutlaq o‘lchovi emas.",q1:"Natijalar aniqmi?",a1:"Yo‘q, ular taxminiy ko‘rsatkichlar bo‘lib, o‘zingizni tushunishga yordam beradi.",q2:"Ma’lumotlarim xavfsizmi?",a2:"Biz faqat zarur ma’lumotlarni yig‘amiz; hisobni istalgan vaqtda o‘chirish mumkin bo‘ladi.",q3:"Bu bepulmi?",a3:"Boshlang‘ich testlar bepul bo‘lishi rejalashtirilgan.",ab:"BILAMAN — O‘zbekiston yoshlari uchun qobiliyatni kashf etish platformasi.",ft:"Barcha huquqlar himoyalangan.",pw:"Parol",go:"Davom etish",auth_note:"Demo: autentifikatsiya backend (2-bosqich) qurilgach ishga tushadi.",e1:"To‘g‘ri email kiriting",e2:"Parol kamida 8 belgi"},
+ru:{n1:"Главная",n2:"Тесты",n3:"Результаты",n4:"Совет",n5:"О нас",n6:"Контакты",login:"Войти",reg:"Регистрация",badge:"✨ На основе ИИ",h1a:"В каждом человеке",h1b:"есть талант.",s1:"Мы поможем",s2:"найти",s3:"его.",lead:"BILAMAN — лучшая платформа, чтобы раскрыть свои способности, спланировать будущее и работать над собой.",cta:"🚀 Определить способности →",video:"▶ Как это работает",c1:"Логическое мышление",c2:"Креативность",c3:"Профессии",c4:"Ваша рекомендация:",f1:"Разные тесты",f1d:"Логика, креатив, IT и другое",f2:"Чёткие результаты",f2d:"Ваши сильные и слабые стороны",f3:"Личные советы",f3d:"Подходящие профессии и направления",f4:"План развития",f4d:"Индивидуальный план на будущее",f5:"ИИ-советник",f5d:"Быстрые и точные ответы",hw:"Как работает BILAMAN",st1:"Пройдите тест",st1d:"Ответьте на вопросы о логике, творчестве и интересах.",st2:"Смотрите результат",st2d:"Сильные стороны показаны на диаграммах как примерные показатели.",st3:"Получите план",st3d:"ИИ-советник предложит направления и план обучения.",dt:"Быстрая проба",dtd:"Короткий тест логики из 3 вопросов.",qs:["Продолжите ряд: 2, 4, 8, 16, …","Какое число лишнее: 2, 3, 5, 9?","Продолжите ряд: 1, 1, 2, 3, 5, …"],qn:"Вопрос",res:"Результат",again:"Пройти снова",disc:"Это примерный показатель, а не абсолютная мера интеллекта.",q1:"Результаты точные?",a1:"Нет, это примерные показатели для лучшего самопонимания.",q2:"Мои данные в безопасности?",a2:"Мы собираем только необходимое; аккаунт можно будет удалить в любой момент.",q3:"Это бесплатно?",a3:"Базовые тесты планируются бесплатными.",ab:"BILAMAN — платформа для раскрытия талантов молодёжи Узбекистана.",ft:"Все права защищены.",pw:"Пароль",go:"Продолжить",auth_note:"Демо: вход заработает после создания бэкенда (этап 2).",e1:"Введите корректный email",e2:"Пароль минимум 8 символов"},
+en:{n1:"Home",n2:"Tests",n3:"Results",n4:"Advice",n5:"About",n6:"Contact",login:"Log in",reg:"Sign up",badge:"✨ Powered by AI",h1a:"Everyone has",h1b:"a talent.",s1:"We help you",s2:"discover",s3:"it.",lead:"BILAMAN is the best platform to find your strengths, plan your future and grow.",cta:"🚀 Discover your talent →",video:"▶ How it works",c1:"Logical thinking",c2:"Creativity",c3:"Careers",c4:"Your recommendation:",f1:"Varied tests",f1d:"Logic, creativity, IT and more",f2:"Clear results",f2d:"Your strengths and weak spots",f3:"Personal advice",f3d:"Best-fit careers and directions",f4:"Growth plan",f4d:"An individual plan for your future",f5:"AI advisor",f5d:"Quick, accurate answers",hw:"How BILAMAN works",st1:"Take a test",st1d:"Answer questions on logic, creativity and interests.",st2:"See your results",st2d:"Strengths appear in charts as approximate indicators.",st3:"Get a plan",st3d:"The AI advisor suggests directions and a learning roadmap.",dt:"Quick try",dtd:"A short 3-question logic test.",qs:["Continue the series: 2, 4, 8, 16, …","Which number is the odd one out: 2, 3, 5, 9?","Continue the series: 1, 1, 2, 3, 5, …"],qn:"Question",res:"Result",again:"Retake",disc:"This is an approximate indicator, not an absolute measure of intelligence.",q1:"Are the results exact?",a1:"No, they are approximate indicators to help you understand yourself.",q2:"Is my data safe?",a2:"We collect only what’s needed; account deletion will be available anytime.",q3:"Is it free?",a3:"Basic tests are planned to be free.",ab:"BILAMAN is a talent discovery platform for the youth of Uzbekistan.",ft:"All rights reserved.",pw:"Password",go:"Continue",auth_note:"Demo: sign-in goes live once the backend (Phase 2) is built.",e1:"Enter a valid email",e2:"Password must be 8+ characters"}};
+var OPT=[[32,24,30],[2,3,9],[8,7,9]],OK=[32,9,8];
+var L="uz",qi=0,sc=0,$=function(s){return document.querySelector(s)};
+function tr(){document.documentElement.lang=L;document.querySelectorAll("[data-i]").forEach(function(e){e.textContent=T[L][e.dataset.i]});demo()}
+function demo(){var d=$("#demo"),t=T[L];
+if(qi>=3){var p=Math.round(sc/3*100);d.innerHTML='<h3>'+t.res+': ~'+p+'%</h3><div class="prog"><i style="width:'+p+'%"></i></div><p class="note">'+t.disc+'</p><button class="btn pri" id="rt">'+t.again+'</button>';$("#rt").onclick=function(){qi=0;sc=0;demo()};return}
+d.innerHTML='<div class="prog"><i style="width:'+(qi/3*100)+'%"></i></div><small>'+t.qn+' '+(qi+1)+'/3</small><h3>'+t.qs[qi]+'</h3><div class="opts">'+OPT[qi].map(function(o){return'<button class="opt" data-v="'+o+'">'+o+'</button>'}).join("")+'</div><p class="note">'+t.disc+'</p>';
+d.querySelectorAll(".opt").forEach(function(b){b.onclick=function(){if(+b.dataset.v===OK[qi])sc++;qi++;demo()}})}
+$("#lang").onchange=function(e){L=e.target.value;tr()};
+$("#bg").onclick=function(){$("#lk").classList.toggle("open")};
+$("#lk").onclick=function(){$("#lk").classList.remove("open")};
+var mode="login";
+document.querySelectorAll("[data-auth]").forEach(function(b){b.onclick=function(){mode=b.dataset.auth;$("#at").textContent=T[L][mode];$("#er").textContent="";$("#dlg").showModal()}});
+$("#cl").onclick=function(){$("#dlg").close()};
+$("#af").addEventListener("submit",function(e){var ok=/^\S+@\S+\.\S+$/.test($("#em").value);
+if(!ok){e.preventDefault();$("#er").textContent=T[L].e1;return}
+if($("#ps").value.length<8){e.preventDefault();$("#er").textContent=T[L].e2;return}
+$("#ps").value=""});
+tr();
+</script>
+</body>
+</html>
